@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="currency_exchange" translate="label" sortOrder="999">
+			<label>Currency Exchange</label>
+		</tab>
+		<section id="exchange_configuration" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<label>Configuration</label>
+			<tab>currency_exchange</tab>
+			<resource>Bonecki_CurrencyExchange::config_bonecki_currencyexchange</resource>
+			<group id="api" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>API</label>
+				<field id="api_url" type="text" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>API URL</label>
+					<comment/>
+				</field>
+                <field id="target_currency" type="text" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                    <label>Target currency</label>
+                    <comment/>
+                </field>
+			</group>
+		</section>
+	</system>
+</config>

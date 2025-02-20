@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<exchange_configuration>
+			<api>
+                <api_url>https://latest.currency-api.pages.dev/v1/currencies/eur.json</api_url>
+                <target_currency>pln</target_currency>
+			</api>
+		</exchange_configuration>
+	</default>
+</config>

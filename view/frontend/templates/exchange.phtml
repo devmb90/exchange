@@ -1,0 +1,53 @@
+<?php
+/**
+ * @var $block \Bonecki\CurrencyExchange\Block\Exchange
+ */
+?>
+<div class="currency-converter-wrapper">
+    <h2>Converter</h2>
+    <div class="currency-converter" data-bind="scope: 'currency-converter'">
+        <div class="converter-form">
+            <input type="number"
+                   class="converter-input"
+                   data-bind="value: amount,
+                              valueUpdate: 'input',
+                              attr: {placeholder: $t('Enter EUR amount')}"/>
+
+            <div class="result-wrapper" data-bind="visible: showResult">
+                <input type="number"
+                       class="result-display"
+                       data-bind="value: convertedAmount,
+                                  attr: {disabled: true},
+                                  visible: convertedAmount() > 0"/>
+            </div>
+
+            <button class="converter-button"
+                    data-bind="click: convertManual,
+                              enable: !loading()">
+                <span data-bind="i18n: 'Convert to PLN'"></span>
+            </button>
+
+            <div class="loading-indicator" data-bind="css: { active: loading }">
+                <div class="loader"></div>
+                <span data-bind="i18n: 'Converting...'"></span>
+            </div>
+
+            <div class="error-message" data-bind="visible: errorMessage(), text: errorMessage"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "currency-converter": {
+                        "component": "Bonecki_CurrencyExchange/js/converter",
+                        "apiUrl": "<?= $block->getUrl('rest/all/V1/bonecki-currencyexchange/convert') ?>"
+                }
+            }
+        }
+    }
+}
+</script>
